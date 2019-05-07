@@ -3,7 +3,7 @@
 #include <stdio.h> // for sprintf family
 #include <stdarg.h> // for va_xxx functions
 
-#if PLATFORM != PLATFORM_WINDOWS
+#if AL2O3_PLATFORM != AL2O3_PLATFORM_WINDOWS
 void AL2O3_OutputDebug(char const* msg)
 {
 		printf("%s", msg);
