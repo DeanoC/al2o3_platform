@@ -12,6 +12,7 @@ void AL2O3_OutputDebug(char const* msg)
 
 #include "al2o3_platform/windows.h"
 void AL2O3_OutputDebug(char const *msg) {
+	printf("%s", msg);
 	OutputDebugString(msg);
 }
 #endif
