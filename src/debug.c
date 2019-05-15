@@ -43,9 +43,9 @@ static void debugMsg(char const *file, int line, const char *function, char cons
 	AL2O3_OutputDebug(out);
 }
 
-static void failedAssert(char const *file, int line, char const *msg) {
+static void failedAssert(char const *file, int line, const char* function, char const *statement) {
 	char out[MSG_MAX];
-	sprintf(out, "%s(%i): Assert Failed - %s\n", file, line, msg);
+	sprintf(out, "%s(%i): Assert Failed - %s\n", file, line, statement);
 	AL2O3_OutputDebug(out);
 }
 
@@ -57,7 +57,7 @@ AL2O3_EXTERN_C void AL2O3_ErrorMsg(const char *file, int line, const char *funct
 	vsprintf(out, string, arglist);
 	va_end(arglist);
 
-	AL2O3_Log.errorMsg(file, line, function, out);
+	AL2O3_Logger.errorMsg(file, line, function, out);
 }
 
 AL2O3_EXTERN_C void AL2O3_WarningMsg(const char *file, int line, const char *function, const char *string, ...) {
@@ -68,7 +68,7 @@ AL2O3_EXTERN_C void AL2O3_WarningMsg(const char *file, int line, const char *fun
 	vsprintf(out, string, arglist);
 	va_end(arglist);
 
-	AL2O3_Log.warningMsg(file, line, function, out);
+	AL2O3_Logger.warningMsg(file, line, function, out);
 }
 
 AL2O3_EXTERN_C void AL2O3_InfoMsg(const char *file, int line, const char *function, const char *string, ...) {
@@ -79,7 +79,7 @@ AL2O3_EXTERN_C void AL2O3_InfoMsg(const char *file, int line, const char *functi
 	vsprintf(out, string, arglist);
 	va_end(arglist);
 
-	AL2O3_Log.infoMsg(file, line, function, out);
+	AL2O3_Logger.infoMsg(file, line, function, out);
 }
 
 AL2O3_EXTERN_C void AL2O3_DebugMsg(const char *file, int line, const char *function, const char *string, ...) {
@@ -93,15 +93,15 @@ AL2O3_EXTERN_C void AL2O3_DebugMsg(const char *file, int line, const char *funct
 	vsprintf(out, string, arglist);
 	va_end(arglist);
 
-	AL2O3_Log.debugMsg(file, line, function, out);
+	AL2O3_Logger.debugMsg(file, line, function, out);
 #endif
 }
 
-AL2O3_EXTERN_C void AL2O3_FailedAssert(const char *file, int line, const char *statement) {
-	AL2O3_Log.failedAssert(file, line, statement);
+AL2O3_EXTERN_C void AL2O3_FailedAssert(const char *file, int line, const char* function, const char *statement) {
+	AL2O3_Logger.failedAssert(file, line, function, statement);
 }
 
-AL2O3_EXTERN_C AL2O3_Logger AL2O3_Log = {
+AL2O3_EXTERN_C AL2O3_Logger_t AL2O3_Logger = {
 		&errorMsg,
 		&warningMsg,
 		&infoMsg,

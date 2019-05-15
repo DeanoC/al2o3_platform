@@ -8,17 +8,17 @@
 #define USE_LOGGING 1
 #endif // end USE_LOGGING
 
-typedef struct AL2O3_Logger {
+typedef struct AL2O3_Logger_t {
 	// lowest level of logging, (file, line, message)
 	void (*errorMsg)(char const* file, int line, const char* function, char const* msg);
 	void (*warningMsg)(char const* file, int line, const char* function, char const* msg);
 	void (*infoMsg)(char const* file, int line, const char* function, char const* msg);
 	void (*debugMsg)(char const* file, int line, const char* function, char const* msg);
 
-	void (*failedAssert)(char const* file, int line, char const* msg);
-} AL2O3_Logger;
+	void (*failedAssert)(char const* file, int line, const char* function, char const* statement);
+} AL2O3_Logger_t;
 
-AL2O3_EXTERN_C AL2O3_Logger AL2O3_Log;
+AL2O3_EXTERN_C AL2O3_Logger_t AL2O3_Logger;
 
 AL2O3_EXTERN_C void AL2O3_OutputDebug(char const *msg);
 
@@ -27,7 +27,7 @@ AL2O3_EXTERN_C void AL2O3_WarningMsg(const char* file, int line, const char* fun
 AL2O3_EXTERN_C void AL2O3_InfoMsg(const char* file, int line, const char* function, const char* string, ...);
 AL2O3_EXTERN_C void AL2O3_DebugMsg(const char* file, int line, const char* function, const char* string, ...);
 
-AL2O3_EXTERN_C void AL2O3_FailedAssert(const char* file, int line, const char* statement);
+AL2O3_EXTERN_C void AL2O3_FailedAssert(const char* file, int line, const char* function, const char* statement);
 
 #define ErrorMsg(str, ...) AL2O3_ErrorMsg(__LINE__, __FILE__, __FUNCTION__, str, ##__VA_ARGS__)
 #define WarningMsg(str, ...) AL2O3_WarningMsg(__LINE__, __FILE__, __FUNCTION__, str, ##__VA_ARGS__)
@@ -41,7 +41,7 @@ AL2O3_EXTERN_C void AL2O3_FailedAssert(const char* file, int line, const char* s
 // there is a large amount of stuff included via header files ...
 #define ASSERT(cond) SCE_GNM_ASSERT(cond)
 #else //!ORBIS
-#define ASSERT(b) if (b) {} else { AL2O3_FailedAssert(__FILE__, __LINE__, #b); }
+#define ASSERT(b) if (b) {} else { AL2O3_FailedAssert(__FILE__, __LINE__, __FUNCTION__, #b); }
 #endif //end !ORBIS
 
 #else //!NDEBUG
