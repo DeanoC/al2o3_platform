@@ -149,7 +149,7 @@
 
 #endif
 
-#include "core/platform_osx.h"
+#include "al2o3_platform/platform_osx.h"
 
 #elif defined(__ANDROID__)
 

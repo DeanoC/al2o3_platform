@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <memory.h>
 #include <strings.h>
-else
+#else
 	typedef unsigned long size_t;
 #endif
 
@@ -26,8 +26,5 @@ else
 #define AL2O3_EXPORT_CPP
 
 #define stricmp(a, b) strcasecmp(a, b)
-#define vsprintf_s vsnprintf
-#define strncpy_s strncpy
-#define _strdup strdup
 
 #endif // AL2O3_PLATFORM_POSIX_H

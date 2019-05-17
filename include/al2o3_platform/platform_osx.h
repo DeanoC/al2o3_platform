@@ -5,4 +5,4 @@
 #	define __STDC_CONSTANT_MACROS
 #endif
 
-#include "core/platform_posix.h"
+#include "al2o3_platform/platform_posix.h"
