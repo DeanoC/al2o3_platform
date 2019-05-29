@@ -41,7 +41,7 @@ AL2O3_EXTERN_C void AL2O3_FailedAssert(const char* file, int line, const char* f
 // there is a large amount of stuff included via header files ...
 #define ASSERT(cond) SCE_GNM_ASSERT(cond)
 #else //!ORBIS
-#define ASSERT(b) if (b) {} else { AL2O3_FailedAssert(__FILE__, __LINE__, __FUNCTION__, #b); }
+#define ASSERT(b) { if(!(b)) { AL2O3_FailedAssert(__FILE__, __LINE__, __FUNCTION__, #b); } }
 #endif //end !ORBIS
 
 #else //!NDEBUG

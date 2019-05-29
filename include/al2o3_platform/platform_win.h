@@ -6,7 +6,6 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include <malloc.h>
 #include <string.h>
 
 //#	define _CRTDBG_MAP_ALLOC
