@@ -156,7 +156,7 @@
 #define AL2O3_PLATFORM      AL2O3_PLATFORM_ANDROID
 #define AL2O3_PLATFORM_OS	AL2O3_OS_ANDROID
 
-#include "core/platform_android.h"
+#include "al2o3_platform/platform_android.h"
 
 #elif    defined( __unix__ ) || defined( __unix ) || \
         defined( __sysv__ ) || defined( __SVR4 ) || defined( __svr4__ ) || defined( _SYSTYPE_SVR4 ) || \
@@ -172,12 +172,12 @@
 #if defined( linux ) || defined( __linux )
 
 #define AL2O3_PLATFORM_OS AL2O3_OS_GNULINUX
-#include "core/platform_linux.h"
+#include "al2o3_platform/platform_linux.h"
 
 #elif defined( __FreeBSD__ ) || defined( __NetBSD__ ) || defined( __OpenBSD__ ) || defined( __bsdi__ ) || defined ( __DragonFly__ ) || defined( _SYSTYPE_BSD )
 
 #define AL2O3_PLATFORM_OS		AL2O3_OS_FREEBSD
-#include "core/platform_posix.h"
+#include "al2o3_platform/platform_posix.h"
 
 #else // unknown unix
 #error Not supported
