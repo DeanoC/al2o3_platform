@@ -21,4 +21,6 @@
 #define AL2O3_DEFINE_ALIGNED(def, a) __declspec(align(a)) def
 #endif
 
+#define AL2O3_THREAD_LOCAL __declspec(thread)
+
 #endif // end AL2O3_PLATFORM_WIN_H
