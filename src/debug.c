@@ -84,7 +84,7 @@ AL2O3_EXTERN_C void AL2O3_InfoMsg(const char *file, int line, const char *functi
 
 AL2O3_EXTERN_C void AL2O3_DebugMsg(const char *file, int line, const char *function, const char *string, ...) {
 #ifdef NDEBUG
-	AL2O3_Log.warningMsg(file, line, function, "DebugMsg called in a non-debug version")
+	AL2O3_Logger.warningMsg(file, line, function, "DebugMsg called in a non-debug version");
 #else
 	va_list arglist;
 
