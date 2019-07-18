@@ -3,6 +3,7 @@
 #define AL2O3_PLATFORM_DEBUG_H
 
 #include "al2o3_platform/platform.h"
+#include <assert.h> // for assert
 
 #ifndef USE_LOGGING
 #define USE_LOGGING 1
@@ -35,7 +36,7 @@ AL2O3_EXTERN_C void AL2O3_FailedAssert(const char* file, int line, const char* f
 // there is a large amount of stuff included via header files ...
 #define ASSERT(cond) SCE_GNM_ASSERT(cond)
 #else //!ORBIS
-#define ASSERT(b) { if(!(b)) { AL2O3_FailedAssert(__FILE__, __LINE__, __FUNCTION__, #b); } }
+#define ASSERT(b) { if(!(b)) { AL2O3_FailedAssert(__FILE__, __LINE__, __FUNCTION__, #b); assert((b)); } }
 #endif //end !ORBIS
 #else //!NDEBUG
 #define ASSERT(b)
