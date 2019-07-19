@@ -16,7 +16,7 @@ void AL2O3_OutputDebug(char const *msg) {
 }
 #endif
 
-#define MSG_MAX 2048
+#define MSG_MAX 1024 * 64
 
 static void errorMsg(char const *file, int line, const char *function, char const *msg) {
 	char out[MSG_MAX];
