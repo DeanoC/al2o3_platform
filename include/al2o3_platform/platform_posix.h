@@ -25,6 +25,7 @@
 #define AL2O3_IMPORT AL2O3_EXTERN_C
 #define AL2O3_EXPORT_CPP
 #define AL2O3_THREAD_LOCAL __thread
+#define AL2O3_FORCE_INLINE inline __attribute__((always_inline))
 
 #define stricmp(a, b) strcasecmp(a, b)
 

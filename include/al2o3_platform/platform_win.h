@@ -8,8 +8,6 @@
 #include <stdbool.h>
 #include <string.h>
 #include <stdlib.h>
-//#	define _CRTDBG_MAP_ALLOC
-//#	cppinclude <crtdbg.h>
 
 #define AL2O3_EXPORT AL2O3_EXTERN_C __declspec(dllexport)
 #define AL2O3_IMPORT AL2O3_EXTERN_C __declspec(dllimport)
@@ -22,5 +20,7 @@
 #endif
 
 #define AL2O3_THREAD_LOCAL __declspec(thread)
+
+#define AL2O3_FORCE_INLINE __forceinline
 
 #endif // end AL2O3_PLATFORM_WIN_H
