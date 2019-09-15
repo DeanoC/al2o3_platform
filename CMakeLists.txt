@@ -19,10 +19,12 @@ set(Interface
 		platform_osx.h
 		platform_posix.h
 		platform_win.h
+		visualdebug.h
 		windows.h
 		)
 set(Src
 		debug.c
+		visualdebug.c
 		)
 set(Deps)
 
