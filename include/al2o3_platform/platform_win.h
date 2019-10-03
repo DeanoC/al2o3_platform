@@ -20,7 +20,7 @@
 #endif
 
 #define AL2O3_THREAD_LOCAL __declspec(thread)
-
 #define AL2O3_FORCE_INLINE __forceinline
+#define AL2O3_RESTRICT __restrict
 
 #endif // end AL2O3_PLATFORM_WIN_H
