@@ -31,7 +31,8 @@ static void warningMsg(char const *file, int line, const char *function, char co
 
 static void infoMsg(char const *file, int line, const char *function, char const *msg) {
 	char out[MSG_MAX];
-	sprintf(out, "%s(%i): INFO (%s) - %s\n", file, line, function, msg);
+//	sprintf(out, "%s(%i): INFO (%s) - %s\n", file, line, function, msg);
+	sprintf(out, "INFO: %s\n", msg);
 	AL2O3_OutputDebug(out);
 }
 
