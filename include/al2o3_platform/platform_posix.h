@@ -29,4 +29,19 @@
 #define AL2O3_RESTRICT __restrict
 #define stricmp(a, b) strcasecmp(a, b)
 
+#ifndef __has_builtin         // Optional of course.
+#define __has_builtin(x) 0  // Compatibility with non-clang compilers.
+#endif
+
+#if __has_builtin(__builtin_trap)
+#define AL2O3_DEBUG_BREAK() __builtin_trap();
+#elif AL2O3_COMPILER == AL2O3_COMPILER_CLANG
+#define AL2O3_DEBUG_BREAK() __builtin_trap();
+#elif AL2O3_COMPILER == AL2O3_COMPILER_GCC
+#define AL2O3_DEBUG_BREAK() __builtin_trap();
+#else
+#define AL2O3_DEBUG_BREAK() __asm int 3
+#endif
+
+
 #endif // AL2O3_PLATFORM_POSIX_H
