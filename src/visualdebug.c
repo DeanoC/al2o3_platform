@@ -9,6 +9,9 @@ static void SolidTris(uint32_t triCount, float const * verts, uint32_t colour) {
 static void SolidQuads(uint32_t quadCount, float const * verts, uint32_t colour) {}
 static void Tetrahedron(float const* pos, float const* eulerRots, float const* scale, uint32_t colour) {}
 static void Cube(float const* pos, float const* eulerRots, float const* scale, uint32_t colour) {}
+static void Octahedron(float const* pos, float const* eulerRots, float const* scale, uint32_t colour) {}
+static void Icosahedron(float const* pos, float const* eulerRots, float const* scale, uint32_t colour) {}
+static void Dodecahedron(float const* pos, float const* eulerRots, float const* scale, uint32_t colour) {}
 
 
 AL2O3_EXTERN_C AL2O3_VisualDebugging_t AL2O3_VisualDebugging = {
@@ -19,6 +22,9 @@ AL2O3_EXTERN_C AL2O3_VisualDebugging_t AL2O3_VisualDebugging = {
 		&SolidQuads,
 		&Tetrahedron,
 		&Cube,
+		&Octahedron,
+		&Icosahedron,
+		&Dodecahedron
 };
 
 

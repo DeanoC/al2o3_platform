@@ -29,6 +29,9 @@ typedef struct AL2O3_VisualDebugging_t {
 	// euler rotation are in radians
 	void (*Tetrahedron)(float const* pos, float const* eulerRots, float const* scale, uint32_t colour);
 	void (*Cube)(float const* pos, float const* eulerRots, float const* scale, uint32_t colour);
+	void (*Octahedron)(float const* pos, float const* eulerRots, float const* scale, uint32_t colour);
+	void (*Icosahedron)(float const* pos, float const* eulerRots, float const* scale, uint32_t colour);
+	void (*Dodecahedron)(float const* pos, float const* eulerRots, float const* scale, uint32_t colour);
 
 } AL2O3_VisualDebugging_t;
 AL2O3_EXTERN_C AL2O3_VisualDebugging_t AL2O3_VisualDebugging;
@@ -58,16 +61,30 @@ AL2O3_EXTERN_C AL2O3_VisualDebugging_t AL2O3_VisualDebugging;
 #define VISDEBUG_CUBE(pos, rot, scale, packedcolor) \
   AL2O3_VisualDebugging.Cube(pos, rot, scale, packedcolor)
 
+#define VISDEBUG_OCTAHEDRON(pos, rot, scale, packedcolor) \
+  AL2O3_VisualDebugging.Octahedron(pos, rot, scale, packedcolor)
+
+#define VISDEBUG_ICOSAHEDRON(pos, rot, scale, packedcolor) \
+  AL2O3_VisualDebugging.Icosahedron(pos, rot, scale, packedcolor)
+
+#define VISDEBUG_DODECAHEDRON(pos, rot, scale, packedcolor) \
+  AL2O3_VisualDebugging.Dodecahedron(pos, rot, scale, packedcolor)
+
 #else
 
 #define VISDEBUG_LINE(p0x, p0y, p0z, p1x, p1y, p1z, packedcolor) ((void)0)
 #define VISDEBUG_SOLID_TRI(p0x, p0y, p0z, p1x, p1y, p1z, p2x, p2y, p2z, packedcolor) ((void)0)
 
 #define VISDEBUG_LINES(lineCount, verts, packedcolor) ((void)0)
+#define VISDEBUG_LINESTRIP(lineCount, verts, packedcolor) ((void)0)
+
 #define VISDEBUG_SOLID_TRIS(triCount, verts, packedcolor) ((void)0)
 #define VISDEBUG_SOLID_QUADS(quadCount, verts, packedcolor) ((void)0)
 
 #define VISDEBUG_TETRAHEDRON(pos, rot, scale, packedcolor) ((void)0)
 #define VISDEBUG_CUBE(pos, rot, scale, packedcolor) ((void)0)
+#define VISDEBUG_OCTAHEDRON(pos, rot, scale, packedcolor) ((void)0)
+#define VISDEBUG_ICOSAHEDRON(pos, rot, scale, packedcolor) ((void)0)
+#define VISDEBUG_DODECAHEDRON(pos, rot, scale, packedcolor) ((void)0)
 
 #endif
