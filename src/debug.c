@@ -21,6 +21,7 @@ static void errorMsg(char const *file, int line, const char *function, char cons
 	char out[MSG_MAX];
 	sprintf(out, "%s(%i): ERR (%s) - %s\n", file, line, function, msg);
 	AL2O3_OutputDebug(out);
+	AL2O3_DEBUG_BREAK();
 }
 
 static void warningMsg(char const *file, int line, const char *function, char const *msg) {
@@ -46,6 +47,7 @@ static void failedAssert(char const *file, int line, const char* function, char 
 	char out[MSG_MAX];
 	sprintf(out, "%s(%i): Assert Failed - %s\n", file, line, statement);
 	AL2O3_OutputDebug(out);
+	AL2O3_DEBUG_BREAK();
 }
 
 AL2O3_EXTERN_C void AL2O3_ErrorMsg(const char *file, int line, const char *function, const char *string, ...) {
