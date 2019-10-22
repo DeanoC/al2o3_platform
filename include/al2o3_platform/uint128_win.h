@@ -28,7 +28,7 @@ AL2O3_FORCE_INLINE platform_uint128_t platform_And128(platform_uint128_t const a
 	return _mm_and_si128(a, b);
 }
 
-AL2O3_FORCE_INLINE uint128_t platform_Xor128(platform_uint128_t const a, platform_uint128_t const b) {
+AL2O3_FORCE_INLINE platform_uint128_t platform_Xor128(platform_uint128_t const a, platform_uint128_t const b) {
 	return _mm_xor_si128(a, b);
 }
 
