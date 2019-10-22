@@ -28,6 +28,8 @@ set(Interface
 		platform_win.h
 		visualdebug.h
 		windows.h
+		uint128_gcc.h
+		uint128_win.h
 		)
 set(Src
 		debug.c

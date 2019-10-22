@@ -24,4 +24,6 @@
 #define AL2O3_RESTRICT __restrict
 #define AL2O3_DEBUG_BREAK() __debugbreak()
 
+#include "uint128_win.h"
+
 #endif // end AL2O3_PLATFORM_WIN_H

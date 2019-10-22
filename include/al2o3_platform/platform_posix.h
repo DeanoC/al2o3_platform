@@ -43,5 +43,6 @@
 #define AL2O3_DEBUG_BREAK() __asm int 3
 #endif
 
+#include "uint128_gcc.h"
 
 #endif // AL2O3_PLATFORM_POSIX_H
