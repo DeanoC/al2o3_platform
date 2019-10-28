@@ -1,6 +1,4 @@
 #pragma once
-#ifndef AL2O3_PLATFORM_PLATFORM_H
-#define AL2O3_PLATFORM_PLATFORM_H
 
 #ifdef __cplusplus
 #define AL2O3_EXTERN_C extern "C"
@@ -193,4 +191,6 @@
 
 #include "al2o3_platform/debug.h"
 
-#endif // AL2O3_PLATFORM_PLATFORM_H
+#ifndef AL2O3_LINK_OR_INLINE
+#define AL2O3_LINK_OR_INLINE AL2O3_EXTERN_C AL2O3_FORCE_INLINE
+#endif
