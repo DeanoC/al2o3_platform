@@ -1,6 +1,4 @@
 #pragma once
-#ifndef A2O3_PLATFORM_WINDOWS_H
-#define A2O3_PLATFORM_WINDOWS_H
 
 #define _CRT_SECURE_NO_WARNINGS
 #undef WIN32_LEAN_AND_MEAN
@@ -18,5 +16,3 @@
 
 #include <windows.h>
 #undef ERROR
-
-#endif //end A2O3_PLATFORM_WINDOWS_H

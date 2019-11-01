@@ -1,7 +1,4 @@
 #pragma once
-#ifndef AL2O3_PLATFORM_WIN_H
-#define AL2O3_PLATFORM_WIN_H
-
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdint.h>
@@ -25,5 +22,3 @@
 #define AL2O3_DEBUG_BREAK() __debugbreak()
 
 #include "uint128_win.h"
-
-#endif // end AL2O3_PLATFORM_WIN_H

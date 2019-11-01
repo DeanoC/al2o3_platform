@@ -1,6 +1,4 @@
 #pragma once
-#ifndef AL2O3_PLATFORM_POSIX_H
-#define AL2O3_PLATFORM_POSIX_H
 
 #ifndef _RUST_BINDGEN_
 #include <stdint.h>
@@ -44,5 +42,3 @@
 #endif
 
 #include "uint128_gcc.h"
-
-#endif // AL2O3_PLATFORM_POSIX_H
