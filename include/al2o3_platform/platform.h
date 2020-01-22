@@ -12,6 +12,7 @@
 #define AL2O3_PLATFORM_IPHONE     (2)
 #define AL2O3_PLATFORM_UNIX       (3)
 #define AL2O3_PLATFORM_ANDROID    (4)
+#define AL2O3_PLATFORM_UNKNOWN		(5)
 
 // OS options
 #define AL2O3_OS_CUSTOM         (0)
@@ -25,6 +26,7 @@
 #define AL2O3_COMPILER_MSVC     (0)
 #define AL2O3_COMPILER_GCC      (1)
 #define AL2O3_COMPILER_CLANG    (2)
+#define AL2O3_COMPILER_CUDA     (3)
 
 // endianess
 #define AL2O3_CPU_LITTLE_ENDIAN (0)
@@ -76,7 +78,17 @@
 
 
 // compiler identifcation
-#if defined( _MSC_VER ) && !defined(__clang__)
+#if defined( __clang__)
+
+#define AL2O3_COMPILER                  AL2O3_COMPILER_CLANG
+#include "al2o3_platform/compiler_clang.h"
+
+#elif defined(__NVCC__)
+
+#define AL203_COMPILER AL203_COMPILER_CUDA
+#include "al2o3_platform/compiler_cuda.h"
+
+#elif defined( _MSC_VER )
 
 // compiler version used with above
 #define AL2O3_MS_VS2012                 (12)
@@ -101,15 +113,13 @@
 #define AL2O3_COMPILER_VERSION		AL2O3_MS_VS2017
 #endif
 
-#elif defined( __GNUC__ ) && !defined(__clang__)
+#elif defined( __GNUC__ )
 #define AL2O3_COMPILER				  AL2O3_COMPILER_GCC
 #define AL2O3_GCC_V2                    (0)
 #define AL2O3_GCC_V3                    (1)
 #define AL2O3_GCC_V4                    (2)
 #define AL2O3_GCC_V4_3                  (3)
 
-#elif defined( __clang__ )
-#define AL2O3_COMPILER                  AL2O3_COMPILER_CLANG
 #else
 #error Not supported
 #endif
@@ -124,8 +134,6 @@
 
 #elif defined(__APPLE__) && defined( __MACH__ )
 
-#if !defined(_RUST_BINDGEN_)
-
 #include <TargetConditionals.h>
 
 #if TARGET_OS_IPHONE
@@ -138,14 +146,6 @@
 // override endianness with the OS_OSX one, hopefully right...
 #undef AL2O3_CPU_ENDIANESS
 #define AL2O3_CPU_ENDIANESS (TARGET_RT_LITTLE_ENDIAN == 1)
-
-#else
-
-// for rust gen this wrong but bindgen can't find TargetConditionals.h
-#define AL2O3_PLATFORM    AL2O3_PLATFORM_APPLE_MAC
-#define AL2O3_PLATFORM_OS AL2O3_OS_OSX
-
-#endif
 
 #include "al2o3_platform/platform_osx.h"
 
@@ -183,9 +183,7 @@
 
 #else // unknown PLATFORM
 
-#if !defined(_RUST_BINDGEN_)
-#error unknown platform
-#endif
+#define AL2O3_PLATFORM AL2O3_PLATFORM_UNKNOWN
 
 #endif // endif OS
 
