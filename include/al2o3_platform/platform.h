@@ -113,12 +113,17 @@
 #define AL2O3_COMPILER_VERSION		AL2O3_MS_VS2017
 #endif
 
+#include "al2o3_platform/compiler_msvc.h"
+
+
 #elif defined( __GNUC__ )
 #define AL2O3_COMPILER				  AL2O3_COMPILER_GCC
 #define AL2O3_GCC_V2                    (0)
 #define AL2O3_GCC_V3                    (1)
 #define AL2O3_GCC_V4                    (2)
 #define AL2O3_GCC_V4_3                  (3)
+
+#include "al2o3_platform/compiler_gcc.h"
 
 #else
 #error Not supported
@@ -185,6 +190,7 @@
 
 #define AL2O3_PLATFORM AL2O3_PLATFORM_UNKNOWN
 
+//#error UKNOWN_PLATFORM
 #endif // endif OS
 
 #include "al2o3_platform/debug.h"
